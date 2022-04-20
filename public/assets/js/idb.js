@@ -17,7 +17,7 @@ request.onsuccess = function (event) {
   // when db is successfully created with its object store
   // (from onupgradeneeded event above) or established a connection,
   // save reference to db in global var
-  db.event.target.result;
+  db = event.target.result;
 
   // check if app is online, if yes
   // run uploadPizza() fn to send all local db data to api
