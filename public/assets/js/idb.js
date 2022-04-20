@@ -11,3 +11,23 @@ request.onupgradeneeded = function (event) {
   // set it to auto increment primary key
   db.createObjectStore("new_pizza", { autoIncrement: true });
 };
+
+// upon success
+request.onsuccess = function(event) {
+    // when db is successfully created with its object store
+    // (from onupgradeneeded event above) or established a connection,
+    // save reference to db in global var
+    db.event.target.result;
+
+    // check if app is online, if yes
+    // run uploadPizza() fn to send all local db data to api
+    if (navigator.onLine) {
+        // we haven't created this yet
+        // uploadPizza();
+    }
+};
+
+request.onerror = function(event) {
+    // log error
+    console.log(event.target.errorCode);
+}
